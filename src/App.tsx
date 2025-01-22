@@ -5,7 +5,7 @@ import Egresados from './pages/Egresados';
 import Home from './pages/index';
 import NotRegistered from './components/NotRegistered';
 import AdminLayout from './pages/AdminLayout';
-import { Link } from 'react-router-dom';
+//import { Link } from 'react-router-dom';
 import Layout from './components/Layout';
 import PanelUsuario from './components/PanelUsuario';
 import PanelControl from './components/PanelControl';
