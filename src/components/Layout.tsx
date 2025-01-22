@@ -1,5 +1,6 @@
 import React, { ReactNode } from 'react';
 import { Link } from 'react-router-dom';
+
 interface LayoutProps {
   children: ReactNode;
 }
@@ -7,31 +8,63 @@ interface LayoutProps {
 const Layout: React.FC<LayoutProps> = ({ children }) => {
   return (
     <div className="flex flex-col min-h-screen">
-      <nav className="bg-blue-500 p-4">
-        <div className="container mx-auto flex items-center justify-between">
-          <h1 className="text-white text-2xl">SOLICITUD UNERG</h1>
-          <ul className="flex gap-x-4">
-            <li className="text-white cursor-pointer">
-              <Link to="/fundesurg">Fundesurg</Link>
-            </li>
-            <li className="text-white cursor-pointer">
-              <Link to="/control-de-estudio">Control de estudio</Link>
-            </li>
-            <li className="text-white cursor-pointer">
-              <Link to="/egresados">Egresados</Link>
-            </li>
-          </ul>
+      {/* Navbar */}
+      <nav className="bg-blue-800 text-white p-4">
+        <div className="container mx-auto flex justify-between items-center">
+          <a className="text-xl" href="#">UNERG SOLICITUDES</a>
+          <div className="space-x-4">
+            <Link className="hover:underline" to="/">Inicio</Link>
+            <Link className="hover:underline" to="/solicitudes">Solicitudes</Link>
+            <Link className="hover:underline" to="/contacto">Contacto</Link>
+          </div>
         </div>
       </nav>
 
-      <main className="container mx-auto my-8 flex-grow">
+      {/* Header with Logos */}
+      <div className="mx-6 py-8">
+        <div className="flex justify-between items-center">
+          {/* Logo Gobierno */}
+          <div>
+            <img src="/img/logo-gobierno.png" alt="Logo Gobierno" className="h-16" />
+          </div>
+
+          {/* Logo Dirección */}
+          <div className="h-24 border-r border-black py-4 px-4 pr-8 text-right">
+            <span className="block text-sm">Gobierno <strong>Bolivariano</strong><br />
+              de Venezuela</span>
+          </div>
+
+          {/* Ministerio de Educación */}
+          <div className='h-24 border-r py-4 px-4 pr-8 border-black'>
+            <span className="block text-sm text-right">
+              Ministerio del Poder Popular<br />
+              Para la <strong>Educación Universitaria</strong><br />
+              de Venezuela
+            </span>
+          </div>
+
+          {/* Universidad Nacional Experimental */}
+          <div className='h-24 border-r py-4 px-4 pr-8 border-black'>
+            <span className="block text-sm text-right">
+              Universidad Nacional Experimental<br />
+              <strong>Rómulo Gallegos</strong>
+            </span>
+          </div>
+
+          {/* Logo Universidad */}
+          <div>
+            <img src="/img/logo-romulo.png" alt="Logo Universidad" className="h-16" />
+          </div>
+        </div>
+      </div>
+
+      <main className="flex-grow">
         {children}
       </main>
 
-      <footer className="bg-gray-800 p-4">
-        <div className="container mx-auto text-white">
-          <p className="text-center">&copy; Todos los derechos reservados, Universidad Romulo Gallegos.</p>
-        </div>
+      {/* Footer */}
+      <footer className="text-center py-4 bg-gray-800 text-white">
+        <small>Universidad Nacional Experimental Rómulo Gallegos © Todos los derechos reservados</small>
       </footer>
     </div>
   );

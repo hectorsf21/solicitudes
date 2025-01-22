@@ -4,8 +4,12 @@ import ControlDeEstudio from './pages/ControlDeEstudio';
 import Egresados from './pages/Egresados';
 import Home from './pages/index';
 import NotRegistered from './components/NotRegistered';
-import Admin from './pages/Admin';
+import AdminLayout from './pages/AdminLayout';
 import { Link } from 'react-router-dom';
+import Layout from './components/Layout';
+import PanelUsuario from './components/PanelUsuario';
+import PanelControl from './components/PanelControl';
+import PanelSolicitudes from './components/PanelSolicitudes';
 
 export default function App() {
 
@@ -23,11 +27,13 @@ export default function App() {
       </div>
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/admin" element={<Admin/>} />
-        <Route path="/f" element={<Fundesurg />} />
-        <Route path="/c" element={<ControlDeEstudio />} />
-        <Route path="/e" element={<Egresados />} />
-        <Route path="/error" element={<NotRegistered />} />
+        <Route path="/admin" element={<AdminLayout><PanelControl/></AdminLayout>} />
+        <Route path="/f" element={<Layout><Fundesurg /></Layout>} />
+        <Route path="/c" element={<Layout><ControlDeEstudio /></Layout>} />
+        <Route path="/e" element={<Layout><Egresados /></Layout>} />
+        <Route path="/error" element={<Layout><NotRegistered /></Layout>} />
+        <Route path="/admin/panel-usuario" element={<AdminLayout><PanelUsuario/></AdminLayout>} />
+        <Route path="/admin/panel-solicitudes" element={<AdminLayout><PanelSolicitudes/></AdminLayout>} />
       </Routes>
     </Router>
   );
