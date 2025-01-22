@@ -5,7 +5,7 @@ import Egresados from './pages/Egresados';
 import Home from './pages/index';
 import NotRegistered from './components/NotRegistered';
 import AdminLayout from './pages/AdminLayout';
-//import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import Layout from './components/Layout';
 import PanelUsuario from './components/PanelUsuario';
 import PanelControl from './components/PanelControl';
@@ -15,7 +15,7 @@ export default function App() {
 
   return (
     <Router>
-      {/* <div>
+      <div>
       <nav className='p-4 flex justify-around'>
       <Link to="/">Home</Link>
       <Link to="/admin">Admin</Link>
@@ -24,7 +24,7 @@ export default function App() {
       <Link to="/e">Egresados</Link>
       <Link to="/error">Error</Link>
     </nav>
-      </div> */}
+      </div>
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/admin" element={<AdminLayout><PanelControl/></AdminLayout>} />
